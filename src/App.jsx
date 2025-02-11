@@ -1,9 +1,10 @@
 import './App.css'
-
+import SeedPhraseGenerator from './components/SeedPhraseGenerator'
 function App() {
   return (
     <div>
-      hii there!
+     <h2>Welcom to the Web wallet</h2>
+     <SeedPhraseGenerator />
     </div>
   )
 }
