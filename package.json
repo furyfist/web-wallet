@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@scure/bip32": "^1.6.2",
+    "@scure/bip39": "^1.5.4",
     "bip39": "^3.1.0",
     "bip39-web": "^1.0.0",
     "buffer": "^6.0.3",
+    "ethereumjs-util": "^7.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "vite-plugin-node-polyfills": "^0.23.0"
