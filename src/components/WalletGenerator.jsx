@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 
 function WalletGenerator({ seedPhrase }) {
   const [wallet, setWallet] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     if (seedPhrase) {
       generateWallet();
+      setShowDetails(false); // Reset show details when new wallet is generated
     }
   }, [seedPhrase]);
 
@@ -29,15 +31,23 @@ function WalletGenerator({ seedPhrase }) {
 
   return (
     <div>
-      {wallet  && <h2>Wallet Details</h2> }
-      
-        {wallet && <div>
-          <p><strong>Derivation Path:</strong> {wallet.path}</p>
-          <p><strong>Address:</strong> {wallet.address}</p>
-          <p><strong>Public Key:</strong> {wallet.publicKey}</p>
-          <p><strong>Private Key:</strong> {wallet.privateKey}</p>
+      {wallet && (
+        <div>
+          <button onClick={() => setShowDetails(!showDetails)}>
+            {showDetails ? 'Hide Wallet Details' : 'Show Wallet Details'}
+          </button>
+          
+          {showDetails && (
+            <div>
+              <h2>Wallet Details</h2>
+              <p><strong>Derivation Path:</strong> {wallet.path}</p>
+              <p><strong>Address:</strong> {wallet.address}</p>
+              <p><strong>Public Key:</strong> {wallet.publicKey}</p>
+              <p><strong>Private Key:</strong> {wallet.privateKey}</p>
+            </div>
+          )}
         </div>
-        }
+      )}
     </div>
   );
 }
