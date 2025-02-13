@@ -1,12 +1,15 @@
 import './App.css'
 import SeedPhraseGenerator from './components/SeedPhraseGenerator'
-import SeedPhraseWallets from './components/SeedPhraseWallets'
+import WalletGenerator from './components/WalletGenerator'
+
+
+
 function App() {
   return (
     <div>
      <h2>Welcom to the Web wallet</h2>
-     
-     <SeedPhraseWallets />
+     <SeedPhraseGenerator />
+     <WalletGenerator />
     </div>
   )
 }

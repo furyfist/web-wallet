@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { generateMnemonic } from "bip39";
+import WalletGenerator from "./WalletGenerator";
+
 
 function SeedPhraseGenerator() {
+  //console.log("SeedPhraseGenerator component mounted");
   const [mnemonic, setMnemonic] = useState(""); // State to store the seed phrase
 
   const generateSeedPhrase = () => {
@@ -19,11 +22,14 @@ function SeedPhraseGenerator() {
       {mnemonic && (
         <div>
           <h3>Your Seed Phrase:</h3>
-          <p>{mnemonic}</p>
+          {/* Display the seed phrase on UI */}
+          <p>{mnemonic}</p> 
+          { /* passing the mnemonic state value as a prop named seedPhrase to the SeedPhraseWallet component. */}
+          { mnemonic&&  <WalletGenerator seedPhrase={mnemonic} />}
         </div>
       )}
     </div>
   );
 }
 
-export default SeedPhraseGenerator;
+export default SeedPhraseGenerator
